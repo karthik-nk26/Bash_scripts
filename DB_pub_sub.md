@@ -15,8 +15,8 @@ It detects the local node automatically, creates a **publication** on it, and th
 
 Nodes considered in this setup:
 - `db1` → `<Replace_VM_Host_name>`
-- `db2` → `<Replace_VM_Host_name>``
-- `db3` → `<Replace_VM_Host_name>``
+- `db2` → `<Replace_VM_Host_name>`
+- `db3` → `<Replace_VM_Host_name>`
 
 ---
 
