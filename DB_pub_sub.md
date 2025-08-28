@@ -8,15 +8,15 @@ It detects the local node automatically, creates a **publication** on it, and th
 
 ## 📌 Script Details
 
-- **Database**: `techno_db_wpms`  
-- **User**: `techno_db`  
-- **Password**: `Password@123`  
+- **Database**: `<Database_name>`  
+- **User**: `<Database_username>`  
+- **Password**: `<Database_password>`  
 - **Port**: `5432`  
 
 Nodes considered in this setup:
 - `db1` → `<Replace_VM_Host_name>`
-- `db2` → `VM-Host-name``
-- `db3` → `VM-Host-name``
+- `db2` → `<Replace_VM_Host_name>``
+- `db3` → `<Replace_VM_Host_name>``
 
 ---
 
@@ -46,9 +46,9 @@ PUB_NAME="pub_${NODE_NAME}"
 
 # Peers (short name + host)
 declare -A PEERS
-PEERS[db1]="techno-db-1.sub02181043581.testing.oraclevcn.com"
-PEERS[db2]="techno-db-2.sub02181043581.testing.oraclevcn.com"
-PEERS[db3]="techno-db-3.sub02181043581.testing.oraclevcn.com"
+PEERS[db1]="<Replace_VM_Host_name>"
+PEERS[db2]="<Replace_VM_Host_name>"
+PEERS[db3]="<Replace_VM_Host_name>"
 
 # ==== SCRIPT STARTS ====
 echo "--------------------------------------------------"
