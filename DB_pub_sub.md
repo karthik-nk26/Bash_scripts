@@ -14,9 +14,9 @@ It detects the local node automatically, creates a **publication** on it, and th
 - **Port**: `5432`  
 
 Nodes considered in this setup:
-- `db1` → `techno-db-1.sub02181043581.testing.oraclevcn.com`
-- `db2` → `techno-db-2.sub02181043581.testing.oraclevcn.com`
-- `db3` → `techno-db-3.sub02181043581.testing.oraclevcn.com`
+- `db1` → `<Replace_VM_Host_name>`
+- `db2` → `VM-Host-name``
+- `db3` → `VM-Host-name``
 
 ---
 
@@ -28,9 +28,9 @@ Nodes considered in this setup:
 # Run this on each DB node
 
 # ==== CONFIGURATION ====
-DB_NAME="techno_db_wpms"
-DB_USER="techno_db"
-DB_PASS="Password@123"
+DB_NAME="<Database_name>"
+DB_USER="<Database_username>"
+DB_PASS="<Database_password>"
 DB_PORT=5432
 
 # Identify local node (shortname: db1, db2, db3)
