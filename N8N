@@ -98,7 +98,7 @@ volumes:
 
 docker compose up -d
 
-6) Check if it's running:
+Check if it's running:
 
 docker ps
 
