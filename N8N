@@ -27,3 +27,44 @@ Test Docker
 docker --version
 
 
+---
+2) Create n8n Project Directory and file
+
+mkdir ~/n8n
+cd ~/n8n
+nano .env
+
+N8N_HOST=https://<URL>
+N8N_PORT=5678
+N8N_PROTOCOL=https
+
+# This tells n8n it is served from a subpath
+N8N_PATH=<sub-path-name>
+
+# These must also use the subpath
+WEBHOOK_URL=https://<URL>/<Sub-path-URL>/
+N8N_EDITOR_BASE_URL=https://<URL>/<Sub-path-URL>/
+N8N_API_URL=https://<URL>/<Sub-path-URL>/
+
+# Authentication
+N8N_BASIC_AUTH_ACTIVE=true
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=m0N1Y|>d!bkX9>|
+
+# Cookie secure flag (should be true if using HTTPS)
+N8N_SECURE_COOKIE=true
+
+# Database config
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=<database-server-IP>
+DB_POSTGRESDB_PORT=5432
+DB_POSTGRESDB_DATABASE=<database-name>l
+DB_POSTGRESDB_USER=<database-username>
+DB_POSTGRESDB_PASSWORD=<database-password>
+
+# Runner
+N8N_RUNNERS_ENABLED=true
+
+
+
+NOTE: For the above database configuration, create an database with username and password and provide the same details on above file setup
