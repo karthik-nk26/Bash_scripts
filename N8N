@@ -102,3 +102,47 @@ docker compose up -d
 
 docker ps
 
+--
+
+Configure the NGINX for N8N with subpath name and without subpath name (SSL Required)
+Below mentioned without subpath name
+
+server {
+  server_name <Sub-Domain>;
+  access_log /var/log/nginx/n8n-api-access.log;
+  error_log /var/log/nginx/n8n-api-error.log;
+
+  location / {
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://<Server-IP>:5678;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+}
+  }
+
+
+
+Below mentioned with Subpath name (Add the location above SSL configuration file)
+
+ # n8n served under /sflow/
+    location /sflow/ {
+        rewrite ^/sflow/(.*)$ /$1 break;
+        proxy_pass http://<Server-IP>:5678;
+        proxy_http_version 1.1;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+    }
+
