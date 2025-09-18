@@ -103,33 +103,23 @@ username and password and provide the same details on above file setup
 
 nano docker-compose.yml
 
-version: \"3.7\"
+version: "3.7"
 
 services:
-
-n8n:
-
-image: n8nio/n8n
-
-ports:
-
-\- \"5678:5678\"
-
-env_file:
-
-\- .env \# Load ALL variables from .env into the container
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    env_file:
+      - .env   # Load ALL variables from .env into the container
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - /root/n8n/custom-nodes:/home/node/.n8n/custom
+    restart: unless-stopped
 
 volumes:
+  n8n_data:
 
-\- n8n_data:/home/node/.n8n
-
-\- /root/n8n/custom-nodes:/home/node/.n8n/custom
-
-restart: unless-stopped
-
-volumes:
-
-n8n_data:
 
 5\) Start n8n
 
