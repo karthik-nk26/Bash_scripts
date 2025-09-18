@@ -72,3 +72,38 @@ This document explains how to create an AWS S3 bucket, configure IAM permissions
     }
   ]
 }
+
+## 6. Create a Permission Policy for the User
+Go to **IAM → Users → [your user] → Permissions → Add permissions → Create inline policy**.
+
+In the **JSON editor**, paste the following:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::tnd-bucket-styra/"
+    },
+    {
+      "Sid": "VisualEditor1",
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+Go to IAM → Users → [your user] → Permissions → Add permissions → Create inline policy.
+
+In the JSON editor, paste:
