@@ -68,3 +68,37 @@ N8N_RUNNERS_ENABLED=true
 
 
 NOTE: For the above database configuration, create an database with username and password and provide the same details on above file setup
+
+--
+
+4) Create Docker Compose File
+
+nano docker-compose.yml
+
+version: "3.7"
+
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    env_file:
+      - .env   # Load ALL variables from .env into the container
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - /root/n8n/custom-nodes:/home/node/.n8n/custom
+    restart: unless-stopped
+
+volumes:
+  n8n_data:
+
+--
+
+5) Start n8n
+
+docker compose up -d
+
+6) Check if it's running:
+
+docker ps
+
