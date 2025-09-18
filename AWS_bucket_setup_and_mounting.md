@@ -73,6 +73,8 @@ This document explains how to create an AWS S3 bucket, configure IAM permissions
   ]
 }
 
+---
+
 ## 6. Create a Permission Policy for the User
 Go to **IAM → Users → [your user] → Permissions → Add permissions → Create inline policy**.
 
